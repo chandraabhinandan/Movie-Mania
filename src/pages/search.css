@@ -1,0 +1,178 @@
+/* Container stays full-height and flexes to center only the dropdown card */
+.search {
+   min-height: 100vh;             /* so it’s at least screen-tall, but can grow */
+
+  /* Background settings */
+  background-image: url("../assets/search.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: auto;         /* show the image at its natural width/height */
+
+  /* Allow the content to scroll */
+  overflow: auto;
+}
+
+/* Header (navbar) remains at top by default */
+
+/* Center only the dropdown card in the remaining space */
+.dropdown {
+  flex: 1;                        /* fill available space under header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40vh;
+}
+
+/* The card wrapper */
+.dropdown .card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-width: 320px;
+  width: 90%;
+}
+
+/* Form elements */
+.dropdown label {
+  display: block;
+  font-size: 1.1rem;
+  color: #0B1C1A;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.dropdown select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5H7z%22%20fill%3D%22white%22/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Submit button */
+.dropdown input[type="submit"] {
+  background: #ff3c3c;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown input[type="submit"]:hover {
+  background: #e03535;
+}
+
+.dropdown select option {
+  background: #fff;
+  color: #333;
+}
+
+.dropdown input[type="text"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  outline: none;
+  backdrop-filter: blur(4px);
+  transition: border-color 0.3s ease;
+}
+
+.dropdown input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dropdown input[type="text"]:focus {
+
+  background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.movie-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 400ms ease-out forwards;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  /* entry animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 400ms ease-out forwards;
+
+  /* ✨ add this for hover smoothness */
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.movie-card:hover {
+  /* scale up slightly, keep it “lifted” */
+  transform: translateY(0) scale(1.05);
+  z-index: 1;
+
+  /* optional: add a stronger shadow */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+.movie-card h3 {
+  color: rgb(4, 159, 4);
+  margin: 0 0 0.5rem;
+}
+
+.movie-card .desc {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-bottom: 0.75rem;
+}
+
+.movie-card .rating {
+  color: rgb(4, 159, 4);
+  text-align: right;
+  font-weight: bold;
+}
+
+.temp{
+  color: white;
+  text-align: center;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

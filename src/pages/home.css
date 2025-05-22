@@ -1,0 +1,82 @@
+.home {
+  min-height: 100vh;             /* so it’s at least screen-tall, but can grow */
+
+  /* Background settings */
+  background-image: url("../assets/home.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: auto;         /* show the image at its natural width/height */
+
+  /* Allow the content to scroll */
+  overflow: auto;
+}
+.newRelease{
+  color: white;
+  text-align: center;
+  margin-top: 55vh;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.movie-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 400ms ease-out forwards;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  /* entry animation */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 400ms ease-out forwards;
+
+  /* ✨ add this for hover smoothness */
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.movie-card:hover {
+  /* scale up slightly, keep it “lifted” */
+  transform: translateY(0) scale(1.05);
+  z-index: 1;
+
+  /* optional: add a stronger shadow */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+.movie-card h3 {
+  color: rgb(4, 159, 4);
+  margin: 0 0 0.5rem;
+}
+
+.movie-card .desc {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-bottom: 0.75rem;
+}
+
+.movie-card .rating {
+  color: rgb(4, 159, 4);
+  text-align: right;
+  font-weight: bold;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
