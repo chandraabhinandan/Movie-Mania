@@ -26,11 +26,7 @@ function Search() {
     const data = await res.json();
 
     if (res.ok && data.suggestion) {
-      // ——————————  INSERT START ——————————
-      // raw AI response with ```json fences
       let raw = data.suggestion;
-
-      // locate the JSON array inside
       const start = raw.indexOf("[");
       const end   = raw.lastIndexOf("]") + 1;
 
@@ -47,7 +43,6 @@ function Search() {
           setMovies([]);
         }
       }
-      // ——————————  INSERT END ——————————
     } else {
       setMovies([]); 
     }
